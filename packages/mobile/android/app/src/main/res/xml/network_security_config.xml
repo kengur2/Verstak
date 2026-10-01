@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Сервер Verstak обычно работает в локальной сети по обычному http:
+  сертификата у домашнего компьютера нет. Разрешаем незашифрованный трафик —
+  иначе приложение не сможет подключиться к такому серверу.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

@@ -1,0 +1,34 @@
+{
+  "name": "verstak",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Verstak — единая программа: мульти-инстанс OpenCode, русский интерфейс, PWA для телефона",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "workspaces": [
+    "packages/server",
+    "packages/web",
+    "packages/mobile"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @verstak/server && npm run build --workspace @verstak/web",
+    "build:web": "npm run build --workspace @verstak/web",
+    "build:server": "npm run build --workspace @verstak/server",
+    "dev": "npm run build:server && node packages/server/dist/index.js",
+    "dev:server": "npm run dev --workspace @verstak/server",
+    "dev:web": "npm run dev --workspace @verstak/web",
+    "start": "npm run start --workspace @verstak/server",
+    "mobile:sync": "npm run sync --workspace @verstak/mobile",
+    "mobile:apk": "npm run build:web && npm run apk --workspace @verstak/mobile",
+    "mobile:icons": "node packages/mobile/scripts/generate-icons.mjs",
+    "typecheck": "npm run typecheck --workspace @verstak/server && npm run typecheck --workspace @verstak/web",
+    "clean": "rm -rf packages/*/dist packages/*/tsconfig.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}

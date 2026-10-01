@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Verstak">
+  <rect width="512" height="512" rx="112" fill="#0f1115"/>
+  <path d="M136 176h240v40H136z" fill="#5c7cfa"/>
+  <path d="M136 256h168v40H136z" fill="#8fa4ff"/>
+  <path d="M136 336h96v40H136z" fill="#c3ceff"/>
+  <circle cx="392" cy="356" r="34" fill="#2b8a3e"/>
+</svg>

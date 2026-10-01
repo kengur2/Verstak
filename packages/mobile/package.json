@@ -1,0 +1,24 @@
+{
+  "name": "@verstak/mobile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Мобильное приложение Verstak (Android/iOS) на Capacitor",
+  "scripts": {
+    "build:assets": "node scripts/prepare-web-assets.mjs",
+    "sync": "npm run build:assets && cap sync android",
+    "apk": "npm run sync && cd android && ./gradlew assembleDebug",
+    "build": "npm run build:assets"
+  },
+  "dependencies": {
+    "@capacitor-mlkit/barcode-scanning": "^8.1.0",
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/app": "^8.0.0",
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/filesystem": "^8.1.3",
+    "@capacitor/share": "^8.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.4.1"
+  }
+}

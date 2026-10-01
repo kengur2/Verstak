@@ -1,0 +1,39 @@
+# Зависимости
+node_modules/
+
+# Результаты сборки интерфейса и сервера
+dist/
+packages/*/dist/
+
+# Копия веб-сборки внутри мобильного проекта — её делает `npm run mobile:sync`
+packages/mobile/android/app/src/main/assets/public/
+
+# Android: результаты сборки, а не исходники
+.gradle/
+build/
+*.apk
+*.aab
+*.ap_
+*.dex
+local.properties
+
+# Ключи подписи приложения — в репозиторий не попадают никогда
+*.jks
+*.keystore
+
+# Локальные настройки и секреты
+.env
+.env.*
+!.env.example
+
+# Редакторы и система
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Журналы
+*.log
+npm-debug.log*
+yarn-error.log*

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Русские названия, которые система показывает в лаунчере и в списке
+     приложений, когда язык телефона — русский. -->
+<resources>
+    <string name="app_name">Verstak</string>
+    <string name="title_activity_main">Verstak</string>
+    <string name="package_name">com.verstak.app</string>
+    <string name="custom_url_scheme">com.verstak.app</string>
+</resources>
