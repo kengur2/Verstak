@@ -1,0 +1,47 @@
+name: Проверка
+
+# Проверяем каждый пуш в main и каждый pull request: сломанный код не должен
+# попадать в основную ветку незамеченным.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Новый пуш в ту же ветку отменяет предыдущую проверку — незачем гонять две.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Типы и сборка
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Забрать код
+        uses: actions/checkout@v4
+
+      - name: Установить Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # `npm ci` ставит строго по package-lock.json — сборка воспроизводима.
+      - name: Установить зависимости
+        run: npm ci
+
+      - name: Проверить типы
+        run: npm run typecheck
+
+      - name: Собрать сервер и интерфейс
+        run: npm run build
+
+      # Если интерфейс не собрался в один файл, приложение не запустится:
+      # проверяем, что точка входа и ресурсы на месте.
+      - name: Проверить сборку интерфейса
+        run: |
+          test -f packages/web/dist/index.html
+          test -f packages/server/dist/index.js
+          echo "Сборка на месте"

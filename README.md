@@ -1,5 +1,7 @@
 # Verstak
 
+[![Проверка](https://github.com/kengur2/Verstak/actions/workflows/ci.yml/badge.svg)](https://github.com/kengur2/Verstak/actions/workflows/ci.yml)
+
 Единая программа для работы с [OpenCode](https://opencode.ai): проекты, сессии,
 задачи по расписанию, файлы, статистика, подключение с телефона и приложение для
 Android.
